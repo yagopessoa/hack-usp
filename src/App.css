@@ -63,6 +63,7 @@
   margin-top: 8px;
   width: 70vw;
   max-height: 50vh;
+  overflow-y: auto;
 }
 
 .header-list{
