@@ -60,14 +60,14 @@
 }
 
 .list {
-  margin-top: 32px;
+  margin-top: 8px;
   width: 70vw;
   max-height: 50vh;
 }
 
 .header-list{
-  width: 100%;
-  
+  width: 70vw;
+
 }
 
 @media screen and (max-width: 980px) {
@@ -83,5 +83,9 @@
 
   .how-it-works {
     margin-top: 0px;
+  }
+
+  .list {
+    width: 100vw;
   }
 }

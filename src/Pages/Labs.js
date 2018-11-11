@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import firebase from 'firebase'
 import firebaseConfig from '../firebaseConfig'
@@ -17,17 +18,16 @@ export default class Labs extends Component {
     }
 
     componentWillMount(){
-        console.log(firebaseConfig)
         database.ref('/labs').on('value', (snapshot) => {
             console.log(snapshot.val())
-            this.setState({ itens: snapshot.val(), /* loading: false */ })
+            this.setState({ itens: snapshot.val(), loading: false })
         }, err => console.log(err))
     }
 
     renderList(){
         return this.state.itens.map(item => 
-            <ListItem button href="#">
-                <ListItemText primary="Lala" secondary="Subtitle" />
+            <ListItem divider key={item.sigla} button href="#">
+                <ListItemText primary={item.sigla} secondary={item.nome+' - '+item.unidade_de_ensino+'/USP'} />
             </ListItem>
         )
     }
@@ -35,7 +35,7 @@ export default class Labs extends Component {
     render(){
         return(
             <div style={{
-                paddingTop: 64,
+                padding: 64,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
