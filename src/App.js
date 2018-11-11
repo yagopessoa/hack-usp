@@ -14,6 +14,7 @@ import Menu from '@material-ui/icons/Menu'
 
 import Sobre from './Pages/Sobre'
 import Login from './Pages/Login'
+import Labs from './Pages/Labs'
 
 import WorkStep from './Components/WorkStep'
 
@@ -27,7 +28,6 @@ import {
 const styles = {
   root: {
     width: '100%',
-    maxHeight: '100vh'
   },
   toolbar: {
     flexGrow: 1,
@@ -73,7 +73,7 @@ const Home = () =>
   <div className="page-body">
     <div className="sub-title">
       <h1>
-        Conecte-se com Laboratórios de Pesquisa e invista para potencializar seu negócio!
+        Conecte-se a Laboratórios de Pesquisa para potencializar seu negócio!
       </h1>
     </div>
     <div className="how-it-works">
@@ -83,9 +83,11 @@ const Home = () =>
         <WorkStep icon='list' text='Confira a lista de laboratórios que mais combinam com sua empresa' />
         <WorkStep icon='send' text='Entre em contato para fechar a parceria' />
       </div>
-      <Button style={styles.button} variant="contained" size="large" color="secondary" >
-        <span style={{color: '#FFF'}}>Começar</span>
-      </Button>
+      <Link style={styles.link} to="/labs">
+        <Button style={styles.button} variant="contained" size="large" color="secondary" >
+          <span style={{color: '#FFF'}}>Começar</span>
+        </Button>
+      </Link>
     </div>
   </div>
 </MuiThemeProvider>
@@ -97,7 +99,7 @@ class App extends Component {
       <Router>
         <div><MuiThemeProvider theme={theme}>
           <div style={styles.root}>
-            <AppBar color="primary" position="static">
+            <AppBar color="primary" position="absolute">
               <Toolbar style={styles.toolbar}>
                 <MediaQuery minWidth={1124}>
                   <div style={{flexGrow: 1}}>
@@ -141,6 +143,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             <Route path="/sobre" component={Sobre} />
             <Route path="/login" component={Login} />
+            <Route path="/labs" component={Labs} />
           </Switch>
 
         </MuiThemeProvider></div>

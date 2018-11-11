@@ -23,7 +23,7 @@
   display: flex;
   padding: 32px;
   flex-direction: column;
-  max-height: 90vh;
+  padding-top: 64px;
 }
 
 .sub-title{
@@ -57,6 +57,17 @@
   margin: 0px 32px;
   padding: 32px;
   background-color: #EEEEEE;
+}
+
+.list {
+  margin-top: 32px;
+  width: 70vw;
+  max-height: 50vh;
+}
+
+.header-list{
+  width: 100%;
+  
 }
 
 @media screen and (max-width: 980px) {
