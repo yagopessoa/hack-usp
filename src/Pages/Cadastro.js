@@ -3,13 +3,8 @@ import React, { Component } from 'react'
 import Card from '@material-ui/core/Card'
 import { TextField, Button } from '@material-ui/core';
 
-import {
-    Link,
-  } from 'react-router-dom';
-
 import firebase from 'firebase'
 import firebaseConfig from '../firebaseConfig'
-
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -28,7 +23,7 @@ auth.onAuthStateChanged(function(user) {
 const styles = {
     card: {
         width: 300,
-        height: 300,
+        height: 400,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -45,29 +40,30 @@ const styles = {
     },
 }
 
-export default class Login extends Component {
+export default class Cadastro extends Component {
 
     state = {
+        nome: '',
         email: '',
         password: '',
+        password_confirm: '',
         authenticated: false
     }
 
-    handleLogin = () => {
+    handleRegister = () => {
 
-        auth.signInWithEmailAndPassword(this.state.email, this.state.password).then(function(firebaseUser){
-            this.setState({authenticated: true})
-        }).catch(function(error) {
+        if (this.state.password !== this.state.password_confirm) {
+            alert("Senhas distintas!");
+            return;
+        }
+
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+            // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
-            if (errorCode && errorMessage) {
-                console.log(errorCode + ": " + errorMessage);
-            }
-            if (errorCode === 'auth/invalid-email' || errorCode === 'auth/user-not-found') {
-                alert("E-mail incorreto!");
-            } else if (errorCode === 'auth/wrong-password') {
-                alert("Senha incorreta!");
-            }
+            // ...
+
+            console.log(errorCode + ' ' + errorMessage);
         });
         
     }
@@ -77,6 +73,14 @@ export default class Login extends Component {
         return(
             <div style={{display: 'flex', justifyContent: 'center'}}>
             <Card style={styles.card}>
+                <TextField
+                    id="nome-input"
+                    label="Nome"
+                    placeholder="Digite o nome da empresa"
+                    margin="normal"
+                    value={this.state.nome}
+                    onChange={newValue => this.setState({ nome: newValue.target.value })}
+                />
                 <TextField
                     id="email-input"
                     label="E-mail"
@@ -93,17 +97,23 @@ export default class Login extends Component {
                     value={this.state.password}
                     onChange={newValue => this.setState({ password: newValue.target.value })}
                 />
-                <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleLogin}>
-                    <span>Entrar</span>
+
+                <TextField
+                    id="password-confirm-input"
+                    label="Confirmar senha"
+                    type="password"
+                    margin="normal"
+                    value={this.state.password_confirm}
+                    onChange={newValue => this.setState({ password_confirm: newValue.target.value })}
+                />
+                
+                <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleRegister}>
+                    <span>Registrar</span>
                 </Button>
                 
-                <Link style={styles.link} to = "/cadastroEmpresa">
-                    <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleLogin}>
-                        <span>Registrar</span>
-                    </Button>
-                </Link>
 
             </Card>
+
             </div>
         )
     }

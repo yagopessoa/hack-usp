@@ -15,6 +15,9 @@ import Menu from '@material-ui/icons/Menu'
 import Sobre from './Pages/Sobre'
 import Login from './Pages/Login'
 import Labs from './Pages/Labs'
+import Cadastro from './Pages/Cadastro'
+import CadastroPesquisador from './Pages/CadastroPesquisador'
+import LoginPesquisador from './Pages/LoginPesquisador'
 
 import WorkStep from './Components/WorkStep'
 
@@ -116,7 +119,12 @@ class App extends Component {
                         Sobre
                       </Button>
                     </Link>
-                    <Link style={styles.link} to="/login">
+                    <Link style={styles.link} to="/empresa">
+                      <Button style={styles.appBarButton} color="inherit">
+                        Sou Empresa
+                      </Button>
+                    </Link>
+                    <Link style={styles.link} to="/pesquisador">
                       <Button style={styles.appBarButton} color="inherit">
                         Sou pesquisador
                       </Button>
@@ -143,8 +151,11 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/sobre" component={Sobre} />
-            <Route path="/login" component={Login} />
+            <Route path="/empresa" component={Login} />
             <Route path="/labs" component={Labs} />
+            <Route path="/pesquisador" component={LoginPesquisador}/>
+            <Route path="/cadastroPesquisador" component={CadastroPesquisador}/>
+            <Route path="/cadastroEmpresa" component={Cadastro}/>
           </Switch>
 
         </MuiThemeProvider></div>
