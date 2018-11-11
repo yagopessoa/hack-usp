@@ -23,11 +23,16 @@
   display: flex;
   padding: 32px;
   flex-direction: column;
-  max-height: 90vh;
+  padding-top: 64px;
+  background: url('./Images/2.png');
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
 }
 
 .sub-title{
   width: 70vw;
+  padding-left: 72px;
 }
 
 .how-it-works {
@@ -56,10 +61,47 @@
   text-align: center;
   margin: 0px 32px;
   padding: 32px;
-  background-color: #EEEEEE;
+  /* background-color: #EEEEEE; */
+}
+
+.list {
+  margin-top: 8px;
+  width: 70vw;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.header-list{
+  width: 70vw;
+}
+
+.check-boxes{
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.check-boxes-cadastro{
+  /* width: 70vw; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.why{
+  padding-top: 32px;
+  padding-bottom: 32px;
+  text-align: center;
 }
 
 @media screen and (max-width: 980px) {
+
+  .sub-title{
+    width: 80vw;
+    padding-left: 0px;
+  }
+
   .work-steps{
     flex-direction: column;
   }
@@ -72,5 +114,23 @@
 
   .how-it-works {
     margin-top: 0px;
+  }
+
+  .header-list{
+    width: 95vw;
+  }
+
+  .list {
+    width: 100vw;
+  }
+
+  .check-boxes{
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .check-boxes{
+    flex-direction: column;
   }
 }
