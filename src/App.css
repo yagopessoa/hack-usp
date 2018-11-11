@@ -67,7 +67,13 @@
 
 .header-list{
   width: 70vw;
+}
 
+.check-boxes{
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 980px) {
@@ -85,7 +91,21 @@
     margin-top: 0px;
   }
 
+  .header-list{
+    width: 95vw;
+  }
+
   .list {
     width: 100vw;
+  }
+
+  .check-boxes{
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .check-boxes{
+    flex-direction: column;
   }
 }
