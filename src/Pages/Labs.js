@@ -6,7 +6,11 @@ import ListItemText from '@material-ui/core/ListItemText'
 
 import firebase from 'firebase'
 import firebaseConfig from '../firebaseConfig'
-firebase.initializeApp(firebaseConfig)
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 var database = firebase.database()
 
 export default class Labs extends Component {
