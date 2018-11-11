@@ -98,7 +98,7 @@ export default class Login extends Component {
                 </Button>
                 
                 <Link style={styles.link} to = "/cadastroPesquisador">
-                    <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleLogin}>
+                    <Button style={styles.button} variant="contained" size="small" color="primary">
                         <span>Registrar</span>
                     </Button>
                 </Link>

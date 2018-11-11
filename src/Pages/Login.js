@@ -53,16 +53,20 @@ export default class Login extends Component {
         authenticated: false
     }
 
-    handleLogin = () => {
-
-        auth.signInWithEmailAndPassword(this.state.email, this.state.password).then(function(firebaseUser){
+    handleLogin() {
+        console.log("que")
+        auth.signInWithEmailAndPassword(this.state.email, this.state.password).then((firebaseUser) => {
+            console.log("BBBBBBB" + this)
             this.setState({authenticated: true})
         }).catch(function(error) {
+
             var errorCode = error.code;
             var errorMessage = error.message;
             if (errorCode && errorMessage) {
                 console.log(errorCode + ": " + errorMessage);
             }
+            console.log("AAAAAA" + this);
+            if (!this.state.email || !this.state.password) return;
             if (errorCode === 'auth/invalid-email' || errorCode === 'auth/user-not-found') {
                 alert("E-mail incorreto!");
             } else if (errorCode === 'auth/wrong-password') {
@@ -93,12 +97,12 @@ export default class Login extends Component {
                     value={this.state.password}
                     onChange={newValue => this.setState({ password: newValue.target.value })}
                 />
-                <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleLogin}>
+                <Button style={styles.button} variant="contained" size="small" color="primary" onClick={() => this.handleLogin()}>
                     <span>Entrar</span>
                 </Button>
                 
                 <Link style={styles.link} to = "/cadastroEmpresa">
-                    <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleLogin}>
+                    <Button style={styles.button} variant="contained" size="small" color="primary">
                         <span>Registrar</span>
                     </Button>
                 </Link>

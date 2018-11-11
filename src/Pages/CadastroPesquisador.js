@@ -184,8 +184,8 @@ export default class CadastroPesquisador extends Component {
                         Sistemas Web
                     </div>
                     <div>
-                        <Checkbox onChange={event => this.setState({bd: event.target.checked})} checked={this.state.bd}/>
-                        Bases de Dados
+                        <Checkbox onChange={event => this.setState({redes: event.target.checked})} checked={this.state.redes}/>
+                        Redes
                     </div>
                 </div>
 
