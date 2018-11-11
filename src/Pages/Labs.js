@@ -10,7 +10,11 @@ import { MediaQuery } from 'react-responsive'
 
 import firebase from 'firebase'
 import firebaseConfig from '../firebaseConfig'
-firebase.initializeApp(firebaseConfig)
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 var database = firebase.database()
 
 export default class Labs extends Component {
