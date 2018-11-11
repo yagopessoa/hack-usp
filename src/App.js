@@ -58,6 +58,8 @@ const styles = {
   },
   button: {
     marginTop: 32,
+    padding: 20,
+    fontSize: 25,
   },
   appBarButton: {
     marginLeft: 16,
@@ -77,11 +79,10 @@ const Home = () =>
       </h1>
     </div>
     <div className="how-it-works">
-      <h4>Como funciona:</h4>
       <div className="work-steps" >
-        <WorkStep icon='check' text='Defina áreas de atuação' />
-        <WorkStep icon='list' text='Confira a lista de laboratórios que mais combinam com sua empresa' />
-        <WorkStep icon='send' text='Entre em contato para fechar a parceria' />
+        <WorkStep step='1' icon='check' text='Defina áreas de atuação' />
+        <WorkStep step='2' icon='list' text='Confira a lista de laboratórios que mais combinam com sua empresa' />
+        <WorkStep step='3' icon='send' text='Entre em contato para fechar a parceria' />
       </div>
       <Link style={styles.link} to="/labs">
         <Button style={styles.button} variant="contained" size="large" color="secondary" >
