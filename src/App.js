@@ -28,6 +28,7 @@ import {
 const styles = {
   root: {
     width: '100%',
+    height: 25
   },
   toolbar: {
     flexGrow: 1,
@@ -58,8 +59,8 @@ const styles = {
   },
   button: {
     marginTop: 32,
-    padding: 20,
-    fontSize: 25,
+    padding: 12,
+    fontSize: 16,
   },
   appBarButton: {
     marginLeft: 16,
@@ -77,6 +78,7 @@ const Home = () =>
       <h1>
         Conecte-se a Laboratórios de Pesquisa para potencializar seu negócio!
       </h1>
+      Veja quais pesquisas estão sendo desenvolvidas na Universidade. Encontre alguma que possa ser aplicada no contexto da sua empresa. Colha os resultados dentro da sua empresa.
     </div>
     <div className="how-it-works">
       <div className="work-steps" >
@@ -91,6 +93,10 @@ const Home = () =>
       </Link>
     </div>
   </div>
+  {/* <div className="why" id="why">
+    <h4>Porque contratar serviços diretamente dos laboratórios de Universidades?</h4>
+    O USP Research conecta sua empresa com os melhores laboratórios universitários de pesquisa e inovação da américa latina.
+  </div> */}
 </MuiThemeProvider>
 
 class App extends Component {
@@ -111,7 +117,7 @@ class App extends Component {
                     </Typography>
                   </div>
                   <div>
-                    <Link style={styles.link} to="/sobre">
+                    <Link style={styles.link} to="#why">
                       <Button style={styles.appBarButton} color="inherit">
                         Sobre
                       </Button>
