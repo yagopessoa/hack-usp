@@ -82,6 +82,13 @@
   justify-content: space-between;
 }
 
+.check-boxes-cadastro{
+  /* width: 70vw; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .why{
   padding-top: 32px;
   padding-bottom: 32px;

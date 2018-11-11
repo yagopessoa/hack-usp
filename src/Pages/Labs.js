@@ -3,10 +3,13 @@ import React, { Component } from 'react'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import CircularProgress from '@material-ui/core/CircularProgress'
 import Checkbox from '@material-ui/core/Checkbox'
-
-import { MediaQuery } from 'react-responsive'
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 import firebase from 'firebase'
 import firebaseConfig from '../firebaseConfig'
@@ -24,13 +27,16 @@ export default class Labs extends Component {
         loading: true,
         bd: false,
         graf: false,
-        aprend: false,
+        aprend: true,
         ia: false,
         sisd: false,
         robo: false,
         redes: false,
         engsoft: false,
         sisweb: false,
+        cardTitle: '',
+        cardDescript: '',
+        open: false,
     }
 
     componentWillMount(){
@@ -149,7 +155,7 @@ export default class Labs extends Component {
 
                 if (!show) return <div key={item.sigla}></div>
                 return (
-                    <ListItem divider key={item.sigla} button href="#">
+                    <ListItem divider key={item.sigla} button onClick={() => this.setState({cardTitle: item.nome, cardDescript: 'E-mail: '+item.email, open: true})}>
                         <ListItemText primary={item.sigla} secondary={item.nome+' - '+item.unidade_de_ensino+'/USP'} />
                     </ListItem>
                 )
@@ -218,6 +224,24 @@ export default class Labs extends Component {
                         {!this.state.loading && this.renderList()}
                     </List>
                 </div>
+                <Dialog
+                    open={this.state.open}
+                    onClose={() => this.setState({open: false})}
+                    aria-labelledby="dialog-title"
+                    aria-describedby="dialog-description"
+                >
+                    <DialogTitle id="dialog-title">{this.state.cardTitle}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            {this.state.cardDescript}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => this.setState({open: false})} color="primary" autoFocus>
+                            Entre em contato
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }

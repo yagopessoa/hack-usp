@@ -6,6 +6,8 @@ import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Checkbox 
 import firebase from 'firebase'
 import firebaseConfig from '../firebaseConfig'
 
+import { Link } from 'react-router-dom'
+
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
@@ -141,7 +143,7 @@ export default class Cadastro extends Component {
                     </Select>
                     </FormControl>
                 </form>
-                <div className='check-boxes' style={this.state.showFiltros ? {display: 'block'} : {display: 'none'}}>
+                <div className='check-boxes-cadastro' style={this.state.showFiltros ? {display: 'block'} : {display: 'none'}}>
                     <div>
                         <Checkbox onChange={event => this.setState({bd: event.target.checked})} checked={this.state.bd}/>
                         Bases de Dados
@@ -197,10 +199,11 @@ export default class Cadastro extends Component {
                     onChange={newValue => this.setState({ password_confirm: newValue.target.value })}
                 />
                 
-                <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleRegister}>
-                    <span>Registrar</span>
-                </Button>
-                
+                <Link style={styles.link} to="/labs">
+                    <Button style={styles.button} variant="contained" size="small" color="primary" onClick={this.handleRegister}>
+                        <span>Registrar</span>
+                    </Button>
+                </Link>
 
             </Card>
 

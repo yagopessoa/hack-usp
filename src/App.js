@@ -120,11 +120,11 @@ class App extends Component {
                     </Typography>
                   </div>
                   <div>
-                    <Link style={styles.link} to="#why">
+                    {/* <Link style={styles.link} to="#why">
                       <Button style={styles.appBarButton} color="inherit">
                         Sobre
                       </Button>
-                    </Link>
+                    </Link> */}
                     <Link style={styles.link} to="/empresa">
                       <Button style={styles.appBarButton} color="inherit">
                         Sou Empresa
